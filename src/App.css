@@ -1,38 +1,135 @@
-.App {
+html {
+  font-size: 100%;
+}
+
+.app {
   text-align: center;
+  background-color: #fff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.active {
+  color: white !important;
+  background-color: #000 !important;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.currentweather {
+  font-family: Calibri;
+  display: inline-block;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.currentweather__location {
+  font-size: 1.5rem;
+  margin-top: 0.75rem;
+}
+
+.currentweather__main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0.5rem 0.5rem 0 0.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.currentweather__main > * {
+  margin-right: 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.currentweather__main > *:last-child {
+  margin: 0;
 }
+
+.currentweather__main > h1 {
+  font-family: Calibri;
+  font-size: 4rem;
+  font-weight: 10;
+}
+
+.currentweather__main__tempconvert {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.currentweather__main__tempconvert > * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  background-color: transparent;
+  font-size: 1.5rem;
+  outline: none;
+  padding: 0.25rem;
+}
+
+.currentweather__main__tempconvert > *:hover {
+  cursor: pointer;
+}
+
+.currentweather__tempcondition {
+  font-size: 1.75rem;
+}
+
+.currentweather__updatetime {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+.currentweather__weatheritems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.currentweather__weatheritems > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.currentweather__weatheritems > * > * {
+  margin-right: 1.5rem;
+}
+
+.currentweather__weatheritems > * > :last-child {
+  margin: 0;
+}
+/*# sourceMappingURL=App.css.map */

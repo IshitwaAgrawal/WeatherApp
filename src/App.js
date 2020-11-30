@@ -1,10 +1,19 @@
 import './App.css';
+import Header from './components/Header/Header';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
 import DailyWeather from './container/DailyWeather/DailyWeather';
 
 function App() {
   return (
     <div className="app">
+       
+      {/* 
+          Search bar with App name on top left 
+          and search box on right
+      */}
+
+      <Header />
+
        <CurrentWeather />
 
        <DailyWeather />

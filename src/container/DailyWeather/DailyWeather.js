@@ -12,6 +12,8 @@ function DailyWeather() {
                 <WeatherComponent />
                 <WeatherComponent />
                 <WeatherComponent />
+                <WeatherComponent />
+                <WeatherComponent />
             </div>
         </div>
     )

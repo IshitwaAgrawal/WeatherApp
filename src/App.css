@@ -1,8 +1,11 @@
 html {
-  font-size: 16px;
+  font-size: 120%;
+  scroll-behavior: smooth;
+  font-family: Calibri;
 }
 
 .app {
+  color: #fff;
   text-align: center;
   background-color: #fff;
   display: -webkit-box;
@@ -12,6 +15,8 @@ html {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  background-image: url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  background-size: 100% 100%;
 }
 
 .active {
@@ -19,9 +24,43 @@ html {
   background-color: #000 !important;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  opacity: 0.6;
+  background: rgba(0, 0, 0, 0.45) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  background-blend-mode: darken;
+}
+
+.header__heading {
+  text-align: left;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+}
+
+.header__input {
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.15) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  background-blend-mode: lighten;
+  border-radius: 20px;
+  padding: 10px;
+  width: 15rem;
+  outline: none;
+  cursor: pointer;
+}
+
 .currentweather {
-  font-family: Calibri;
   display: inline-block;
+  font-weight: 100;
 }
 
 .currentweather__location {
@@ -90,6 +129,10 @@ html {
   cursor: pointer;
 }
 
+.currentweather__main__icon {
+  width: 4rem;
+}
+
 .currentweather__tempcondition {
   font-size: 1.75rem;
 }
@@ -145,6 +188,8 @@ html {
   display: inline-block;
   border: 1px #000;
   text-align: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .dailyweather > h1 {
@@ -168,7 +213,7 @@ html {
 }
 
 .weathercomponent {
-  border: 1px solid #fff;
+  border: 1px solid transparent;
   padding: 1.5rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -187,6 +232,14 @@ html {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
+  opacity: 0.7;
+  background: rgba(255, 255, 255, 0.15) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  background-blend-mode: lighten;
+  margin: 1rem;
+}
+
+.weathercomponent__date {
+  font-size: 0.98rem;
 }
 
 .weathercomponent__temp {
@@ -214,7 +267,27 @@ html {
   margin-right: 0.4rem;
 }
 
+.weathercomponent__temp__max {
+  font-size: 1.2rem;
+}
+
+.weathercomponent__temp__min {
+  opacity: 0.6;
+  font-size: 0.9rem;
+}
+
+.weathercomponent__icon {
+  width: 2.75rem;
+}
+
+.weathercomponent__weathertype {
+  font-size: 0.8rem;
+}
+
 .weathercomponent:hover {
-  border: 1px solid #000;
+  opacity: 1;
+  border: 1px solid #fff;
+  -webkit-filter: brightness(4px);
+          filter: brightness(4px);
 }
 /*# sourceMappingURL=App.css.map */

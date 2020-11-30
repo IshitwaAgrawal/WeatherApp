@@ -12,7 +12,7 @@ function CurrentWeather() {
             */}
             <p className="currentweather__location">Chandausi, Up</p>
             <div className="currentweather__main">
-                <img src="http://openweathermap.org/img/w/50n.png" alt="icon"/>
+                <img className="currentweather__main__icon" src="http://openweathermap.org/img/w/50n.png" alt="icon"/>
                 <h1>20&deg;</h1>
                 <div className="currentweather__main__tempconvert">
                     <button className="">C</button>

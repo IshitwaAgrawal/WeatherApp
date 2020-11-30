@@ -1,20 +1,13 @@
 import './App.css';
 import CurrentWeather from './components/CurrentWeather/CurrentWeather';
+import DailyWeather from './container/DailyWeather/DailyWeather';
 
 function App() {
   return (
     <div className="app">
        <CurrentWeather />
 
-       {/* 
-          Daily weather caraousel for day forecast
-            each weather tile ->
-              date
-              icon
-              max min
-              weather condition
-        */
-        }
+       <DailyWeather />
 
         {/* 
           caraousel Hourly forecast

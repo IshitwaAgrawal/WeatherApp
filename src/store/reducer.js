@@ -1,15 +1,50 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-    counter:0,
+    city:"Oslo",
+    current:null,
+    daily:null,
+    hourly:null,
+    coordinates:null,
+    timezone_offset:0
 }
 
 const reducer = (state = initialState, action) =>{
     switch(action.type){
-        case actionTypes.INCREMENT_COUNTER:{
+        case actionTypes.SET_TIMEZONE_OFFSET:{
             return {
                 ...state,
-                counter:state.counter+1,
+                timezone_offset:action.timezone_offset
+            }
+        }
+        case actionTypes.SET_CITY:{
+            return {
+                ...state,
+                city:action.city
+            }
+        }
+        case actionTypes.SET_CURRENT_DATA:{
+            return {
+                ...state,
+                current:action.payload
+            }
+        }
+        case actionTypes.SET_DAILY_DATA:{
+            return {
+                ...state,
+                daily:action.payload
+            }
+        }
+        case actionTypes.SET_HOURLY_DATA:{
+            return {
+                ...state,
+                hourly:action.payload
+            }
+        }
+        case actionTypes.SET_COORDINATES:{
+            return {
+                ...state,
+                coordinates:action.payload
             }
         }
         default:{

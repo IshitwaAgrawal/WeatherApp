@@ -49,16 +49,16 @@ function WeatherComponent({ hourly,counter,onToggle }) {
         )
 }
 
-const mapStateToProps = state => {
-    return {
-      counter:state.counter
-    }
-  }
+// const mapStateToProps = state => {
+//     return {
+//       data:state.data
+//     }
+//   }
   
-const mapDispatchToProps = dispatch => {
-    return {
-        onToggle: () => dispatch({type:actionTypes.INCREMENT_COUNTER})
-    }
-}
+// const mapDispatchToProps = dispatch => {
+//     return {
+//         onToggle: () => dispatch({type:actionTypes.SET_DATA})
+//     }
+// }
 
-export default connect(mapStateToProps,mapDispatchToProps)(WeatherComponent)
+export default connect(null,null)(WeatherComponent)

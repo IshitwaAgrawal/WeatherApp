@@ -6,9 +6,9 @@ html {
 }
 
 .app {
-  color: #fff;
+  color: white;
   text-align: center;
-  background-color: #fff;
+  background-color: white;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,7 +39,7 @@ html {
   margin: 1rem;
   padding: 1rem;
   opacity: 0.6;
-  background: rgba(0, 0, 0, 0.45) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  background: rgba(0, 0, 0, 0.45) transparent;
   background-blend-mode: darken;
 }
 
@@ -50,11 +50,11 @@ html {
 }
 
 .header__input {
-  opacity: 0.7;
-  background: rgba(255, 255, 255, 0.15) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
   background-blend-mode: lighten;
-  color: #fff;
-  font-weight: 300;
+  color: #000 !important;
+  font-weight: 800;
   font-size: 1rem;
   border-radius: 20px;
   padding: 10px;
@@ -63,6 +63,10 @@ html {
   -webkit-filter: brightness(10px);
           filter: brightness(10px);
   cursor: pointer;
+}
+
+.header__button {
+  display: none;
 }
 
 .currentweather {
@@ -243,8 +247,8 @@ html {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
-  opacity: 0.7;
-  background: rgba(255, 255, 255, 0.15) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
+  opacity: 0.6;
+  background: rgba(255, 255, 255, 0) url("https://image.freepik.com/free-photo/amazing-beautiful-sky-with-clouds_58702-1653.jpg");
   background-blend-mode: lighten;
   margin: 1rem;
 }
@@ -330,8 +334,101 @@ html {
 
 .weathercomponent:hover {
   opacity: 1;
-  border: 1px solid #fff;
+  border: 1px solid white;
   -webkit-filter: brightness(4px);
           filter: brightness(4px);
+}
+
+.daydetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daydetails > h1 {
+  font-weight: 100;
+}
+
+.daydetails__items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daydetails__items__temp {
+  margin-top: 1.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daydetails__items__temp > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daydetails__items__temp > * > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.daydetails__items__temp > * > div > h2 {
+  font-weight: 100;
+}
+
+.daydetails__items__temp > * > h2 {
+  font-weight: 100;
 }
 /*# sourceMappingURL=App.css.map */

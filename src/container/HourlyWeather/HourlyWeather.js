@@ -9,7 +9,7 @@ function HourlyWeather() {
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 6,
+        slidesToShow: 7,
         slidesToScroll: 1,
         responsive: [
             {
@@ -37,10 +37,10 @@ function HourlyWeather() {
     };
 
     return (
-        <div className="dailyweather">
+        <div className="dailyweather hourlyweather">
             <h1>Hourly</h1>
             {/* <div className="dailyweather__items"> */}
-                <Slider {...settings}>
+                <Slider className="dailyweather__items" {...settings}>
                     <div>
                         <WeatherComponent hourly />
                     </div>

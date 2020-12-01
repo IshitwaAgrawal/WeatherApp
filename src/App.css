@@ -1,12 +1,11 @@
 html {
-  /* height: 125%; */
   font-size: 100%;
   scroll-behavior: smooth;
   font-family: Calibri;
+  overflow: auto;
 }
 
 .app {
-  /* height: 120%; */
   color: #fff;
   text-align: center;
   background-color: #fff;
@@ -220,6 +219,10 @@ html {
           align-items: center;
 }
 
+.hourlyweather {
+  overflow-x: hidden;
+}
+
 .weathercomponent {
   border: 1px solid transparent;
   padding: 1.5rem;
@@ -257,12 +260,12 @@ html {
 }
 
 .weathercomponent-hourly__rain {
-  font-size: 0.6rem;
+  font-size: 0.7rem;
   margin-top: 1rem;
 }
 
 .weathercomponent-hourly__wind {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
 }
 
 .weathercomponent-hourly__time {
@@ -321,7 +324,7 @@ html {
 }
 
 .weathercomponent__weathertype-hourly {
-  font-size: 0.7rem;
+  font-size: 0.9rem;
   margin-top: 0;
 }
 

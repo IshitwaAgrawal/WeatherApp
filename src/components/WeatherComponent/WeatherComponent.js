@@ -1,8 +1,25 @@
 import React from 'react'
-import * as actionTypes from '../../store/actions'
+// import * as actionTypes from '../../store/actions'
 import { connect } from 'react-redux'
 
-function WeatherComponent({ hourly,counter,onToggle }) {
+function WeatherComponent({ hourly ,time, max, min, weather, icon, isCelcius, timezone_offset}) {
+
+    const getTime = (time) => {
+        var date = new Date((time+timezone_offset)*1000);
+        return date.toUTCString().substring(17,22);
+    } 
+
+    const convertTemp = temp => {
+        const t = Math.round(temp-273);
+        if(isCelcius){
+            return t;
+        }
+        else{
+            const f = Math.round((t*(9/5))+32);
+            return f;
+        }
+    }
+
     return !hourly ? (
         <div className="weathercomponent">
             {/* each weather tile ->
@@ -10,13 +27,13 @@ function WeatherComponent({ hourly,counter,onToggle }) {
               icon
               max min
               weather condition */}
-            <p className="weathercomponent__date">Mon 30</p>
-            <img className="weathercomponent__icon" src="http://openweathermap.org/img/w/50n.png" alt="icon" />
+            <p className="weathercomponent__date">{getTime(time)}</p>
+            <img className="weathercomponent__icon" src={`http://openweathermap.org/img/w/${icon}.png`} alt="icon" />
             <div className="weathercomponent__temp">
-                <h3 className="weathercomponent__temp__max">25&deg;</h3>
-                <h5 className="weathercomponent__temp__min">10&deg;</h5>
+                <h3 className="weathercomponent__temp__max">{convertTemp(max)}&deg;</h3>
+                <h5 className="weathercomponent__temp__min">{convertTemp(min)}&deg;</h5>
             </div>
-            <p className="weathercomponent__weathertype">Sunny</p>
+            <p className="weathercomponent__weathertype">{weather}</p>
         </div>
     ) :
         (
@@ -49,11 +66,12 @@ function WeatherComponent({ hourly,counter,onToggle }) {
         )
 }
 
-// const mapStateToProps = state => {
-//     return {
-//       data:state.data
-//     }
-//   }
+const mapStateToProps = state => {
+    return {
+        isCelcius:state.isCelcius,
+        timezone_offset:state.timezone_offset
+    }
+  }
   
 // const mapDispatchToProps = dispatch => {
 //     return {
@@ -61,4 +79,4 @@ function WeatherComponent({ hourly,counter,onToggle }) {
 //     }
 // }
 
-export default connect(null,null)(WeatherComponent)
+export default connect(mapStateToProps,null)(WeatherComponent)

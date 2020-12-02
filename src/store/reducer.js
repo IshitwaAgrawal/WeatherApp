@@ -1,12 +1,13 @@
 import * as actionTypes from './actions';
 
 const initialState = {
-    city:"Oslo",
+    city:"Delhi",
     current:null,
     daily:null,
     hourly:null,
     coordinates:null,
-    timezone_offset:0
+    timezone_offset:0,
+    isCelcius:true
 }
 
 const reducer = (state = initialState, action) =>{
@@ -45,6 +46,12 @@ const reducer = (state = initialState, action) =>{
             return {
                 ...state,
                 coordinates:action.payload
+            }
+        }
+        case actionTypes.CHANGE_TEMP_UNIT:{
+            return {
+                ...state,
+                isCelcius:!state.isCelcius
             }
         }
         default:{

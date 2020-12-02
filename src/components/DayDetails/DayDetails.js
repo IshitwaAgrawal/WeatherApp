@@ -18,14 +18,14 @@ function DayDetails() {
                     <div className="daydetails__items__temp-max">
                         <h2>SUNRISE</h2>
                         <div>
-                            <img src="http://openweathermap.org/img/w/50n.png" />
+                            <img src="http://openweathermap.org/img/w/50n.png" alt="icon"/>
                             <h2>06:10</h2>
                         </div>
                     </div>
                     <div className="daydetails__items__temp-min">
                         <h2>SUNSET</h2>
                         <div>
-                            <img src="http://openweathermap.org/img/w/50n.png" />
+                            <img src="http://openweathermap.org/img/w/50n.png" alt="icon" />
                             <h2>17:30</h2>
                         </div>
                     </div>

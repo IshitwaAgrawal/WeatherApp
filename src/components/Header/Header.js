@@ -6,7 +6,9 @@ function Header({city,changeCity}) {
 
     const [searchCity,setSearchCity] = useState(city);
 
-    const change_city = () =>{
+    const change_city = (e) =>{
+        e.preventDefault();
+        changeCity(searchCity);
     }
 
     return (
@@ -24,8 +26,7 @@ function Header({city,changeCity}) {
                     className="header__button"
                     type="submit" 
                     onClick={(e) => {
-                        e.preventDefault();
-                        change_city(searchCity);
+                        change_city(e);
                         }
                     }></button>
             </div>
@@ -41,7 +42,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch =>{
     return {
-        changeCity : (data) => dispatch({action:actionTypes.SET_CITY,city:data}),
+        changeCity : (data) => dispatch({type:actionTypes.SET_CITY,city:data}),
     }
 }
 

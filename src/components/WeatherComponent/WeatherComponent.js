@@ -6,7 +6,9 @@ function WeatherComponent({ hourly ,time, max, min, weather, icon, isCelcius, ti
 
     const getTime = (time) => {
         var date = new Date((time+timezone_offset)*1000);
-        return date.toUTCString().substring(17,22);
+        var day = date.toUTCString().substring(0,3);
+        // var time = date.toUTCString().substring(17,22);
+        return day;
     } 
 
     const convertTemp = temp => {

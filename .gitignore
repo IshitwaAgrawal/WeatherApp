@@ -24,3 +24,4 @@ yarn-error.log*
 
 App.scss
 App.css.map
+.eslintcache

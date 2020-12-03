@@ -12,13 +12,13 @@ function App({city,isLoading,setCurrentData,setDailyData,setHourlyData,setCoordi
   useEffect(()=>{
     axios.get(`getWeatherData/${city}`)
       .then((res) => {
-        console.log(res.data);
+        if(isLoading) toggleLoading(false);
+        // console.log(res.data);
         setCurrentData(res.data.current);
         setDailyData(res.data.daily);
         setHourlyData(res.data.hourly);
         setCoordinates({lat:res.data.lat,lon:res.data.lon});
         setTimezoneOffset(res.data.timezone_offset);
-        if(isLoading) toggleLoading(false);
       })
       .catch((err) => {
         console.log(err);

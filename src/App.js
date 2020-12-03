@@ -28,7 +28,6 @@ function App({city,isLoading,setCurrentData,setDailyData,setHourlyData,setCoordi
 
   return (
     <div>
-      {console.log(window.innerWidth)}
       {isLoading ? <Loading /> : <Layout />}
     </div>
   );

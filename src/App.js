@@ -13,7 +13,7 @@ function App({city,isLoading,setCurrentData,setDailyData,setHourlyData,setCoordi
     axios.get(`getWeatherData/${city}`)
       .then((res) => {
         if(isLoading) toggleLoading(false);
-        // console.log(res.data);
+        console.log(res.data);
         setCurrentData(res.data.current);
         setDailyData(res.data.daily);
         setHourlyData(res.data.hourly);
@@ -23,11 +23,12 @@ function App({city,isLoading,setCurrentData,setDailyData,setHourlyData,setCoordi
       .catch((err) => {
         console.log(err);
       })
-  },[city,isLoading,toggleLoading,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset]);
+  },[city,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset]);
 
 
   return (
     <div>
+      {console.log(window.innerWidth)}
       {isLoading ? <Loading /> : <Layout />}
     </div>
   );

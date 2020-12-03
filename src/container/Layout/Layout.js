@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 import CurrentWeather from '../../components/CurrentWeather/CurrentWeather';
 import DailyWeather from '../DailyWeather/DailyWeather';
 import HourlyWeather from '../HourlyWeather/HourlyWeather';
-import DayDetails from '../../components/DayDetails/DayDetails';
+// import DayDetails from '../../components/DayDetails/DayDetails';
 
 function Layout() {
     return (
@@ -12,7 +12,7 @@ function Layout() {
             <CurrentWeather />
             <DailyWeather />
             <HourlyWeather />
-            <DayDetails />
+            {/* <DayDetails /> */}
         </div>
     )
 }

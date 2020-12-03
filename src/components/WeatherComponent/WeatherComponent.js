@@ -2,14 +2,20 @@ import React from 'react'
 // import * as actionTypes from '../../store/actions'
 import { connect } from 'react-redux'
 
-function WeatherComponent({ hourly ,time, max, min, weather, icon, isCelcius, timezone_offset}) {
+function WeatherComponent({ hourly ,time, max, min, weather, icon, isCelcius, timezone_offset, temp, windSpeed, humidity}) {
 
     const getTime = (time) => {
         var date = new Date((time+timezone_offset)*1000);
         var day = date.toUTCString().substring(0,3);
-        // var time = date.toUTCString().substring(17,22);
         return day;
     } 
+
+    const getDate = (time) => {
+        var date = new Date((time+timezone_offset)*1000);
+        var day = date.toUTCString().substring(0,11);
+        var time2 = date.toUTCString().substring(17,22);
+        return day+" ,"+time2;
+    }
 
     const convertTemp = temp => {
         const t = Math.round(temp-273);
@@ -50,19 +56,19 @@ function WeatherComponent({ hourly ,time, max, min, weather, icon, isCelcius, ti
                 wind speed+direction
                 time
             */}
-                <img className="weathercomponent__icon-hourly" src="http://openweathermap.org/img/w/50n.png" alt="icon" />
+                <img className="weathercomponent__icon-hourly" src={`http://openweathermap.org/img/w/${icon}.png`} alt="icon" />
                 <div className="weathercomponent__temp">
-                    <h3 className="weathercomponent__temp__max">12&deg;</h3>
+                    <h3 className="weathercomponent__temp__max">{convertTemp(temp)}&deg;</h3>
                 </div>
-                <p className="weathercomponent__weathertype-hourly">Clear</p>
+                <p className="weathercomponent__weathertype-hourly">{weather}</p>
                 <p className="weathercomponent-hourly__rain">
-                    0%
+                    {humidity}%
             </p>
                 <p className="weathercomponent-hourly__wind">
-                    8 km/h
+                    {windSpeed} km/h
             </p>
                 <p className="weathercomponent-hourly__time">
-                    01:00
+                    {getDate(time)}
             </p>
             </div>
         )

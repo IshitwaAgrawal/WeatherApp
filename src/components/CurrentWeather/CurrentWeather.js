@@ -62,6 +62,10 @@ function CurrentWeather({city,current,timezone_offset,isCelcius,toggleTempUnit,c
                     <p>Latitude {coordinates?.lat}</p>
                     <p>Longitude {coordinates?.lon}</p>
                 </div>
+                <div>
+                    <p>Sunrise {getTime(current?.sunrise)}</p>
+                    <p>Sunset {getTime(current?.sunset)}</p>
+                </div>
             </div>
         </div>
     )

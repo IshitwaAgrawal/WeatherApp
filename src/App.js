@@ -1,15 +1,13 @@
 import './App.css';
 import { connect } from 'react-redux';
 import * as actionTypes from './store/actions';
-import Header from './components/Header/Header';
-import CurrentWeather from './components/CurrentWeather/CurrentWeather';
-import DailyWeather from './container/DailyWeather/DailyWeather';
-import HourlyWeather from './container/HourlyWeather/HourlyWeather';
-import DayDetails from './components/DayDetails/DayDetails';
 import { useEffect } from 'react';
 import axios from './axios';
+import Layout from './container/Layout/Layout';
+import Loading from './container/Loading/Loading';
 
-function App({city,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset}) {
+
+function App({city,isLoading,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset,toggleLoading}) {
 
   useEffect(()=>{
     axios.get(`getWeatherData/${city}`)
@@ -20,27 +18,25 @@ function App({city,setCurrentData,setDailyData,setHourlyData,setCoordinates,setT
         setHourlyData(res.data.hourly);
         setCoordinates({lat:res.data.lat,lon:res.data.lon});
         setTimezoneOffset(res.data.timezone_offset);
+        if(isLoading) toggleLoading(false);
       })
       .catch((err) => {
         console.log(err);
       })
-  },[city,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset]);
+  },[city,isLoading,toggleLoading,setCurrentData,setDailyData,setHourlyData,setCoordinates,setTimezoneOffset]);
 
 
   return (
-    <div className="app">
-      <Header />
-      <CurrentWeather />
-      <DailyWeather />
-      <HourlyWeather />
-      <DayDetails />
+    <div>
+      {isLoading ? <Loading /> : <Layout />}
     </div>
   );
 }
 
 const mapStateToProps = state => {
   return {
-    city:state.city
+    city:state.city,
+    isLoading:state.isLoading
   }
 }
 
@@ -51,6 +47,7 @@ const mapDispatchToProps = dispatch => {
     setHourlyData: (data) => dispatch({type:actionTypes.SET_HOURLY_DATA,payload:data}),
     setCoordinates: (data) => dispatch({type:actionTypes.SET_COORDINATES,payload:data}),
     setTimezoneOffset: (data) => dispatch({type:actionTypes.SET_TIMEZONE_OFFSET,timezone_offset:data}),
+    toggleLoading: (data) => dispatch({type:actionTypes.TOGGLE_LOADING,status:data}),
   }
 }
 

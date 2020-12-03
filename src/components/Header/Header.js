@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import * as actionTypes from '../../store/actions'
 
-function Header({city,changeCity}) {
+function Header({city,changeCity,toggleLoading}) {
 
     const [searchCity,setSearchCity] = useState(city);
 
     const change_city = (e) =>{
         e.preventDefault();
+        toggleLoading(true);
         changeCity(searchCity);
     }
 
@@ -43,6 +44,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>{
     return {
         changeCity : (data) => dispatch({type:actionTypes.SET_CITY,city:data}),
+        toggleLoading: (data) => dispatch({type:actionTypes.TOGGLE_LOADING,status:data})
     }
 }
 

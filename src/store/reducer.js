@@ -7,7 +7,8 @@ const initialState = {
     hourly:null,
     coordinates:null,
     timezone_offset:0,
-    isCelcius:true
+    isCelcius:true,
+    isLoading:true
 }
 
 const reducer = (state = initialState, action) =>{
@@ -52,6 +53,12 @@ const reducer = (state = initialState, action) =>{
             return {
                 ...state,
                 isCelcius:!state.isCelcius
+            }
+        }
+        case actionTypes.TOGGLE_LOADING:{
+            return {
+                ...state,
+                isLoading:action.status
             }
         }
         default:{

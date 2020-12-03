@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import * as actionTypes from '../../store/actions'
 
-function CurrentWeather({city,current,timezone_offset,isCelcius,toggleTempUnit}) {
+function CurrentWeather({city,current,timezone_offset,isCelcius,toggleTempUnit,coordinates}) {
 
     const getTime = (time) => {
         var date = new Date((time+timezone_offset)*1000);
@@ -58,6 +58,10 @@ function CurrentWeather({city,current,timezone_offset,isCelcius,toggleTempUnit})
                     <p>Humidity  {current?.humidity}%</p>
                     <p>Dew Point  {convertTemp(current?.dew_point)}&deg;</p>
                 </div>
+                <div>
+                    <p>Latitude {coordinates?.lat}</p>
+                    <p>Longitude {coordinates?.lon}</p>
+                </div>
             </div>
         </div>
     )
@@ -69,6 +73,7 @@ const mapStateToProps = state => {
         current:state.current,
         timezone_offset:state.timezone_offset,
         isCelcius:state.isCelcius,
+        coordinates:state.coordinates
     }
 }
 

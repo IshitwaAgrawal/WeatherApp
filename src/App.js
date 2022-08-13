@@ -21,7 +21,7 @@ function App({
       .get(`getWeatherData/${city}`)
       .then((res) => {
         if (isLoading) toggleLoading(false);
-        console.log(res?.data);
+        console.log(res.data);
         setCurrentData(res?.data.current);
         setDailyData(res?.data.daily);
         setHourlyData(res?.data.hourly);
@@ -31,7 +31,7 @@ function App({
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [city]);
 
   return <div>{isLoading ? <Loading /> : <Layout />}</div>;
 }

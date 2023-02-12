@@ -3,7 +3,7 @@ name: React CI/CD Workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   NODE_VERSION: 14

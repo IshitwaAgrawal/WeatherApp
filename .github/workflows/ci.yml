@@ -1,0 +1,43 @@
+name: React CI/CD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NODE_VERSION: 14
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [$NODE_VERSION]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: $NODE_VERSION
+
+    - name: Install dependencies
+      run: |
+        npm ci
+
+    - name: Build React application
+      run: |
+        npm run build
+
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      with:
+        BRANCH: gh-pages # The branch the GitHub Pages site should be hosted from
+        FOLDER: build # The folder that contains the built React application
+        CLEAN: true # Automatically remove files from the previous build

@@ -2,8 +2,7 @@ import axios from 'axios';
 
 const instance = axios.create({
     // baseURL:'https://weatherapp-server.herokuapp.com/api/'
-      baseURL:'http://45.79.217.63:1357/api/',
-      withCredentials: false,
+      baseURL:'https://weather-app-backend-bet9.onrender.com/api/',
 });
 
 export default instance;

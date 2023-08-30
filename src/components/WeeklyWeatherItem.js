@@ -5,15 +5,15 @@ const WeeklyWeatherItem = ({ dayData }) => {
 
   // Define a mapping between weather conditions and background colors
   const weatherToColor = {
-    '01d': 'bg-gradient-to-br from-yellow-400 to-yellow-300', // Sunny
-    '02d': 'bg-gradient-to-br from-yellow-400 to-yellow-300', // Partly cloudy
-    '03d': 'bg-gradient-to-br from-blue-400 to-blue-300', // Cloudy
-    '04d': 'bg-gradient-to-br from-blue-400 to-blue-300', // Cloudy
-    '09d': 'bg-gradient-to-br from-blue-700 to-blue-500', // Showers
-    '10d': 'bg-gradient-to-br from-blue-700 to-blue-500', // Rain
-    '11d': 'bg-gradient-to-br from-blue-700 to-blue-500', // Thunderstorm
-    '13d': 'bg-gradient-to-br from-blue-400 to-blue-300', // Snow
-    '50d': 'bg-gradient-to-br from-blue-400 to-blue-300', // Mist
+    '01d': 'bg-yellow-300', // Sunny
+    '02d': 'bg-yellow-300', // Partly cloudy
+    '03d': 'bg-blue-300',   // Cloudy
+    '04d': 'bg-blue-300',   // Cloudy
+    '09d': 'bg-blue-500',   // Showers
+    '10d': 'bg-blue-500',   // Rain
+    '11d': 'bg-blue-500',   // Thunderstorm
+    '13d': 'bg-blue-300',   // Snow
+    '50d': 'bg-blue-300',   // Mist
   };
 
   // Get the background color based on the weather icon

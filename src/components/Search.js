@@ -10,7 +10,7 @@ const SearchWeather = ({ onSearch }) => {
   };
 
   return (
-    <div className="bg-blue-900 p-6">
+    <div className="bg-blue-900 p-6 my-0.5">
       <form onSubmit={handleSubmit} className="flex items-center justify-center">
         <input
           type="text"

@@ -9,14 +9,24 @@ import WeeklyWeather from "../src/components/WeeklyWeather";
 function Home() {
 
   const data = {
-    "location": "New York, NY",
-    "temperature": 22,
-    "description": "Partly cloudy",
-    "icon": "02d",
+    "location": "New York",
+    "temperature": 28,
+    "description": "Clear sky",
+    "icon": "01d",
     "humidity": 60,
-    "pressure": 1013,
-    "localTime": "12:30 PM"
-  };  
+    "pressure": 1015,
+    "localTime": "13:45",
+    "feelsLike": 30,
+    "wind": 5,
+    "visibility": 10000,
+    "barometer": 1015,
+    "dewPoint": 20,
+    "latitude": 40.7128,
+    "longitude": -74.0060,
+    "sunrise": "06:30",
+    "sunset": "19:45"
+  }
+   
 
   const weeklyData = [
     {

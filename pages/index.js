@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import Header from "../src/components/Header"
 import Hero from "../src/components/Hero";
 import Attribution from "../src/components/Attribution";
@@ -5,28 +7,11 @@ import Footer from "../src/components/Footer";
 import SearchWeather from "../src/components/Search";
 import CurrentWeather from "../src/components/CurrentWeather";
 import WeeklyWeather from "../src/components/WeeklyWeather";
+import { useEffect, useState } from 'react';
 
 function Home() {
-
-  const data = {
-    "location": "New York",
-    "temperature": 28,
-    "description": "Clear sky",
-    "icon": "01d",
-    "humidity": 60,
-    "pressure": 1015,
-    "localTime": "13:45",
-    "feelsLike": 30,
-    "wind": 5,
-    "visibility": 10000,
-    "barometer": 1015,
-    "dewPoint": 20,
-    "latitude": 40.7128,
-    "longitude": -74.0060,
-    "sunrise": "06:30",
-    "sunset": "19:45"
-  }
-   
+  const [data,setData] = useState(null);
+  const [city,setCity] = useState(null);
 
   const weeklyData = [
     {
@@ -93,18 +78,40 @@ function Home() {
       "windSpeed": 3
     }
   ];
-  
-  
+
+  const fetchData = (cityCalled) => {
+    const cityCalledConverted = atob(cityCalled);
+    setCity(cityCalledConverted);
+    const reqData = {
+      "city": cityCalled
+    }
+    axios.post('/api/getWeatherData',reqData)
+      .then(res => {
+        const crnt_data = res?.data;
+        setData(crnt_data)
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  useEffect(()=>{
+    fetchData(btoa('Chandausi'));
+    setCity('Chandausi')
+  },[]);
 
   return (
-    <>
-      <Header />
-      <Hero />
-      <SearchWeather />
-      <CurrentWeather weatherData={data}/>
-      <WeeklyWeather weeklyData={weeklyData}/>
-      <Footer />
-    </>
+      <>
+      {(data) ? (
+      <>
+        <Header />
+        <Hero />
+        <SearchWeather submitHandler={fetchData}/>
+        <CurrentWeather weatherData={data?.current} lat={data?.lat} lon={data?.lon} location={(city)}/>
+        <WeeklyWeather weeklyData={weeklyData}/>
+        <Footer />
+      </>) : <></>}
+      </>
   )
 }
 

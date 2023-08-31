@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const SearchWeather = ({ onSearch }) => {
+const SearchWeather = ({ submitHandler}) => {
   const [location, setLocation] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSearch(location);
+    submitHandler(btoa(location));
     setLocation('');
   };
 

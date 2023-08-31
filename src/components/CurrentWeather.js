@@ -1,23 +1,19 @@
 import React from 'react';
 
-const CurrentWeather = ({ weatherData }) => {
+const CurrentWeather = ({ location, weatherData, lat, lon}) => {
   const {
-    location,
-    temperature,
-    description,
-    icon,
-    localTime,
-    sunrise,
-    sunset,
-    latitude,
-    longitude,
+    dew_point,
+    dt,
+    feels_like,
     humidity,
     pressure,
-    feelsLike,
-    wind,
+    sunrise,
+    sunset,
+    temp,
+    uvi,
     visibility,
-    barometer,
-    dewPoint,
+    weather,
+    wind_speed,
   } = weatherData;
 
 	const weatherToColor = {
@@ -33,24 +29,24 @@ const CurrentWeather = ({ weatherData }) => {
   };
 
   // Get the background color based on the weather icon
-  const backgroundColor = weatherToColor[icon] || 'bg-gray-200'; // Default to gray
+  const backgroundColor = weatherToColor[weather[0].icon] || 'bg-gray-200'; // Default to gray
 
   return (
-    <div className={`${backgroundColor} text-black my-10 mx-auto w-fit grid sm:grid-cols-1 md:grid-cols-2 md:flex md:flex-row md:justify-center md:items-center gap-8 p-6 rounded-lg shadow-lg text-white`}>
+    <div className={`${backgroundColor} text-black my-10 mx-auto w-fit grid sm:grid-cols-1 md:grid-cols-2 md:flex md:flex-row md:justify-center md:items-center gap-8 p-6 rounded-lg shadow-lg `}>
       {/* First Column */}
       <div className="text-center">
         <h2 className="text-3xl font-semibold mb-4">{location}</h2>
         <img
-          src={`https://openweathermap.org/img/w/${icon}.png`}
-          alt={description}
+          src={`https://openweathermap.org/img/w/${weather[0].icon}.png`}
+          alt={weather[0].description}
           className="w-16 h-16 mx-auto mb-2"
         />
-        <p className="text-4xl font-semibold">{temperature}°C</p>
-        <p className="text-xl mb-4">{description}</p>
-        <p className="text-lg">Updated as of : {localTime}</p>
+        <p className="text-4xl font-semibold">{temp}°C</p>
+        <p className="text-xl mb-4">{weather[0].description}</p>
+        <p className="text-lg">Updated as of : {dt}</p>
         <p className="text-lg">Sunrise: {sunrise}</p>
         <p className="text-lg">Sunset: {sunset}</p>
-        <p className="text-lg">Coordinates: {latitude}, {longitude}</p>
+        <p className="text-lg">Coordinates: {lat}, {lon}</p>
       </div>
       
       {/* Second Column */}
@@ -66,7 +62,7 @@ const CurrentWeather = ({ weatherData }) => {
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">Wind</p>
-            <p className="text-2xl">{wind} m/s</p>
+            <p className="text-2xl">{wind_speed} m/s</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">Visibility</p>
@@ -74,11 +70,11 @@ const CurrentWeather = ({ weatherData }) => {
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">Barometer</p>
-            <p className="text-2xl">{barometer} hPa</p>
+            <p className="text-2xl">{pressure} hPa</p>
           </div>
           <div className="text-center">
             <p className="text-lg font-semibold">Dew Point</p>
-            <p className="text-2xl">{dewPoint}°C</p>
+            <p className="text-2xl">{dew_point}°C</p>
           </div>
         </div>
       </div>

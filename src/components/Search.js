@@ -1,17 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-const SearchWeather = ({ submitHandler}) => {
-  const [location, setLocation] = useState('');
+const SearchWeather = ({ fetchData, setLoading, loading }) => {
+  const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    submitHandler(btoa(location));
-    setLocation('');
+    fetchData(btoa(location));
+    setLocation("");
+    setLoading(true);
   };
 
   return (
     <div className="bg-blue-900 p-6 my-0.5">
-      <form onSubmit={handleSubmit} className="flex items-center justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="flex items-center justify-center"
+      >
         <input
           type="text"
           value={location}

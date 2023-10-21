@@ -1,0 +1,130 @@
+.container {
+	padding: 20px;
+	border: 1px solid black;
+	font-size: 1rem;
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 50px;
+}
+
+.header__main {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.location {
+	display: flex;
+	align-items: center;
+	margin: 0 50px;
+	font-size: 1.1rem;
+}
+
+.location__details {
+	margin: 0 20px;
+	letter-spacing: 2px;
+}
+
+.search__bar>input {
+	border-radius: 10px;
+	border: 1px solid black;
+	font-size: 1.1rem;
+	padding: 5px 15px;
+	letter-spacing: 2px;
+}
+
+.weather__data {
+	display: flex;
+	align-items: center;
+}
+
+.weather__card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border-radius: 50px;
+	width: fit-content;
+	padding: 20px 0;
+	font-size: 0.75rem;
+	background-color: #56A3A6;
+	color: #fff;
+	font-family: 'Roboto Mono';
+	margin: 5px 10px;
+	height: 350px;
+}
+
+.date__time {
+	height: 10%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px;
+	border-bottom: 1px solid #484538;
+}
+
+.temperature {
+	height: 60%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 10px;
+	border-bottom: 1px solid #484538;
+}
+
+.temperature>img {
+	height: 4rem;
+}
+
+.more_weather_details {
+	height: 30%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.details1,
+.details2 {
+	margin: 10px;
+}
+
+.weather__card__minimize {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 50px;
+	width: fit-content;
+	padding: 15px 7.5px;
+	font-size: 1rem;
+	background-color: #56A3A6;
+	color: #fff;
+	font-family: 'Roboto Mono';
+	font-style: normal;
+	height: 350px;
+	margin: 5px 10px;
+}
+
+.weather__card__minimize>p {
+	height: 10%;
+	border-bottom: 2px dashed #484538;
+}
+
+.weather__card__minimize .image__wrapper {
+	height: 60%;
+}
+
+.image__wrapper>img {
+	margin-top: 40px;
+	width: 5rem;
+	background-color: white;
+}
+
+.weather__card__minimize>h2 {
+	font-family: 'Roboto Mono';
+	height: 30%;
+	margin-top: 70px;
+}

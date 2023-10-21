@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import {useRouter} from 'next/router'
-import Link from 'next/link';
+import React, { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -19,7 +19,7 @@ const Header = () => {
             Weather App
           </Link>
         </div>
-        <div className="hidden md:flex space-x-6">
+        {/* <div className="hidden md:flex space-x-6">
           <Link href="/" className={`${
               router.pathname === '/'
                 ? 'text-white hover:text-blue-200 underline'
@@ -78,27 +78,39 @@ const Header = () => {
               )}
             </svg>
           </button>
-        </div>
+        </div> */}
       </div>
-      {menuOpen && (
+      {/* {menuOpen && (
         <div className="md:hidden bg-blue-600 py-2">
-          <Link href="/" className="block px-6 py-2 text-white hover:bg-blue-700">
+          <Link
+            href="/"
+            className="block px-6 py-2 text-white hover:bg-blue-700"
+          >
             Home
           </Link>
           <hr />
-					<Link href="/search" className="block px-6 py-2 text-white hover:bg-blue-700">
+          <Link
+            href="/search"
+            className="block px-6 py-2 text-white hover:bg-blue-700"
+          >
             Search
           </Link>
           <hr />
-          <Link href="/about" className="block px-6 py-2 text-white hover:bg-blue-700">
-						About
+          <Link
+            href="/about"
+            className="block px-6 py-2 text-white hover:bg-blue-700"
+          >
+            About
           </Link>
           <hr />
-          <Link href="/login" className="block px-6 py-2 text-white hover:bg-blue-700">
+          <Link
+            href="/login"
+            className="block px-6 py-2 text-white hover:bg-blue-700"
+          >
             Login
           </Link>
         </div>
-      )}
+      )} */}
     </header>
   );
 };

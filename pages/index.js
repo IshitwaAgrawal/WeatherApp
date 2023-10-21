@@ -12,6 +12,8 @@ import { useEffect, useState } from "react";
 function Home() {
   const [data, setData] = useState(null);
   const [city, setCity] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   const weeklyData = [
     {
@@ -89,11 +91,14 @@ function Home() {
       .post("/api/getWeatherData", reqData)
       .then((res) => {
         const crnt_data = res?.data;
-        console.log(crnt_data);
         setData(crnt_data);
+        setError(false);
+        setLoading(false);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
+        setError(true);
       });
   };
 
@@ -108,15 +113,21 @@ function Home() {
         <>
           <Header />
           <Hero />
-          <SearchWeather submitHandler={fetchData} />
+          <SearchWeather
+            fetchData={fetchData}
+            setLoading={setLoading}
+            loading={loading}
+          />
           <CurrentWeather
             weatherData={data?.current}
             lat={data?.lat}
             lon={data?.lon}
             location={city}
             timezone_offset={data?.timezone_offset}
+            error={error}
+            loading={loading}
           />
-          <WeeklyWeather weeklyData={weeklyData} />
+          <WeeklyWeather weeklyData={weeklyData} loading={loading} />
           <Footer />
         </>
       ) : (

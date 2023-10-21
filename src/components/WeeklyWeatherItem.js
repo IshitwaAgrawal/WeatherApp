@@ -1,32 +1,22 @@
 import React from "react";
+import {
+  weatherToColor,
+  weatherToTextColor,
+} from "../../utils/helper_functions";
 
 const WeeklyWeatherItem = ({ dayData }) => {
   const { day, temperature, description, icon, humidity, pressure, windSpeed } =
     dayData;
 
-  // Define a mapping between weather conditions and background colors
-  const weatherToColor = {
-    "01d": "bg-yellow-300", // Sunny
-    "02d": "bg-yellow-300", // Partly cloudy
-    "03d": "bg-blue-300", // Cloudy
-    "04d": "bg-blue-300", // Cloudy
-    "09d": "bg-blue-500", // Showers
-    "10d": "bg-blue-500", // Rain
-    "11d": "bg-blue-500", // Thunderstorm
-    "13d": "bg-blue-300", // Snow
-    "50d": "bg-blue-300", // Mist
-  };
-
   // Get the background color based on the weather icon
-  const backgroundColor = weatherToColor[icon] || "bg-gray-200"; // Default to gray
+  const backgroundColor = weatherToColor[icon] || "bg-gray-200";
+  const textColor = weatherToTextColor[icon] || "text-white";
 
   return (
     <div
-      className={`${backgroundColor} p-4 rounded-lg shadow-md mx-2 text-sm sm:text-base md:text-lg`}
+      className={`${backgroundColor} ${textColor} p-4 rounded-lg shadow-md font-bold mx-2`}
     >
-      <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-2">
-        {day}
-      </h3>
+      <h3 className="text-lg font-semibold mb-2">{day}</h3>
       <img
         src={`https://openweathermap.org/img/w/${icon}.png`}
         alt={description}

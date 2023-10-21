@@ -1,12 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const Hero = () => {
   return (
     <div className="bg-blue-900 py-20 text-white">
       <div className="container mx-auto text-center">
-        <h1 className="text-4xl font-bold mb-4">Explore the Weather with Precision</h1>
-        <p className="text-lg mb-8">
-          Get detailed weekly and hourly weather forecasts for any location worldwide.
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 mx-8">
+          Explore the Weather with Precision
+        </h1>
+        <p className="text-base sm:text-lg md:text-xl mb-8 mx-10">
+          Get detailed weekly and hourly weather forecasts for any location
+          worldwide.
         </p>
         {/* <a
           href="#search"
@@ -20,4 +23,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

@@ -15,7 +15,7 @@ const Header = () => {
     <header className="bg-blue-900 shadow-lg">
       <div className="container mx-auto py-4 px-6 flex items-center justify-between">
         <div className="flex items-center">
-          <Link href="#" className="text-xl font-semibold text-white">
+          <Link href="#" className="text-xl font-semibold text-white mx-2">
             Weather App
           </Link>
         </div>

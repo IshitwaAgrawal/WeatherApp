@@ -2,7 +2,7 @@
   "name": "weather-app",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -10,6 +10,7 @@
   "dependencies": {
     "autoprefixer": "^10.4.15",
     "axios": "^1.5.0",
+    "moment": "^2.29.4",
     "next": "13.4.19",
     "postcss": "^8.4.29",
     "react": "18.2.0",

@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  convertEpochToDateTime,
-  getWeatherToColor,
-  getWeatherToTextColor,
-} from "../../utils/helper_functions";
+import { convertEpochToDateTime } from "../../utils/helper_functions";
 import Loading from "./Loading";
 import Error from "./Error";
 import ImageComponent from "./ImageComponent";

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 
-const SearchWeather = ({ fetchData, setLoading, loading }) => {
+const SearchWeather = ({ fetchData, setLoading, loading, setCity }) => {
   const [location, setLocation] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchData(btoa(location));
     setLocation("");
     setLoading(true);
+    setCity(location);
   };
 
   return (

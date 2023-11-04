@@ -8,8 +8,7 @@ const Hero = () => {
           Explore the Weather with Precision
         </h1>
         <p className="text-base sm:text-lg md:text-xl mb-8 mx-10">
-          Get detailed weekly and hourly weather forecasts for any location
-          worldwide.
+          Get detailed weekly weather forecasts for any location worldwide.
         </p>
         {/* <a
           href="#search"

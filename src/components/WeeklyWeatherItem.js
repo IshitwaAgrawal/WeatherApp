@@ -1,13 +1,19 @@
 import React from "react";
-import {
-  getWeatherToColor,
-  getWeatherToTextColor,
-} from "../../utils/helper_functions";
 import ImageComponent from "./ImageComponent";
+import { convertEpochToDateTime } from "../../utils/helper_functions";
 
-const WeeklyWeatherItem = ({ dayData }) => {
-  const { day, temperature, description, icon, humidity, pressure, windSpeed } =
-    dayData;
+const WeeklyWeatherItem = ({ dayData, timezone_offset }) => {
+  const day = convertEpochToDateTime(dayData?.dt, timezone_offset).dayOfWeek;
+  const temperature = dayData?.temp?.day;
+  const description = dayData?.weather[0]?.description;
+  const icon = dayData?.weather[0]?.icon;
+  const humidity = dayData?.humidity;
+  const pressure = dayData?.pressure;
+  const windSpeed = dayData?.wind_speed;
+  const sunrise = dayData?.sunrise;
+  const sunset = dayData?.sunset;
+  const maxTemp = dayData?.temp?.max;
+  const minTemp = dayData?.temp?.min;
 
   const weatherToColor = {
     "01d": "bg-yellow-300", // Clear sky (day)
@@ -62,10 +68,18 @@ const WeeklyWeatherItem = ({ dayData }) => {
       <h3 className="text-lg font-semibold mb-2">{day}</h3>
       <ImageComponent icon={icon} description={description} />
       <p className="text-lg sm:text-xl md:text-2xl font-semibold">
-        {temperature}°C
+        {temperature}°F
       </p>
       <p className="text-sm sm:text-base md:text-lg">{description}</p>
       <div className="mt-3">
+        <p className="text-sm sm:text-base md:text-lg">
+          Sunrise: {convertEpochToDateTime(sunrise, timezone_offset).time}
+        </p>
+        <p className="text-sm sm:text-base md:text-lg">
+          Sunset: {convertEpochToDateTime(sunset, timezone_offset).time}
+        </p>
+        <p className="text-sm sm:text-base md:text-lg">Max Temp: {maxTemp}°F</p>
+        <p className="text-sm sm:text-base md:text-lg">Min Temp: {minTemp}°F</p>
         <p className="text-sm sm:text-base md:text-lg">Humidity: {humidity}%</p>
         <p className="text-sm sm:text-base md:text-lg">
           Pressure: {pressure} hPa

@@ -43,19 +43,28 @@ function Home() {
             setCity={setCity}
           />
           <CurrentWeather
-            weatherData={data?.current}
-            lat={data?.lat}
-            lon={data?.lon}
-            location={city}
-            timezone_offset={data?.timezone_offset}
+            dt={data?.dt}
+            feels_like={data?.main?.feels_like}
+            humidity={data?.main?.humidity}
+            pressure={data?.main?.pressure}
+            sunrise={data?.sys?.sunrise}
+            sunset={data?.sys?.sunset}
+            temp={data?.main?.temp}
+            visibility={data?.visibility}
+            weather={data?.weather}
+            wind_speed={data?.wind?.speed}
+            lat={data?.coord?.lat}
+            lon={data?.coord?.lon}
+            location={data?.name}
+            timezone_offset={data?.timezone}
             error={error}
             loading={loading}
           />
-          <WeeklyWeather
+          {/* <WeeklyWeather
             weeklyData={data?.daily}
             loading={loading}
             timezone_offset={data?.timezone_offset}
-          />
+          /> */}
           <Footer />
         </>
       ) : (

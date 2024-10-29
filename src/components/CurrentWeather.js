@@ -5,16 +5,40 @@ import Error from "./Error";
 import ImageComponent from "./ImageComponent";
 
 const CurrentWeather = ({
+  dt,
+  feels_like,
+  humidity,
+  pressure,
+  sunrise,
+  sunset,
+  temp,
+  visibility,
+  weather,
+  wind_speed,
   location,
-  weatherData,
   lat,
   lon,
   loading,
   timezone_offset,
   error,
 }) => {
-  const {
-    dew_point,
+  /*
+    dt,
+    feels_like,
+    humidity,
+    pressure,
+    sunrise,
+    sunset,
+    temp,
+    visibility,
+    weather,
+    wind_speed,
+
+  */
+
+  /*
+
+  dew_point,
     dt,
     feels_like,
     humidity,
@@ -26,7 +50,8 @@ const CurrentWeather = ({
     visibility,
     weather,
     wind_speed,
-  } = weatherData;
+
+  */
 
   const weatherToColor = {
     "01d": "bg-yellow-300", // Clear sky (day)
@@ -161,12 +186,12 @@ const CurrentWeather = ({
                   {loading ? <Loading /> : pressure + " hPa"}
                 </p>
               </div>
-              <div className="text-center">
+              {/* <div className="text-center">
                 <p className="text-lg sm:text-xl font-bold">Dew Point</p>
                 <p className="text-xl sm:text-2xl">
                   {loading ? <Loading /> : dew_point + "°F"}
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
